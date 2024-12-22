@@ -43,6 +43,8 @@ const getUser = token => {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: true,
+  playground: true,
   validationRules: [depthLimit(5), createComplexityLimitRule(1000)],
   context: async ({ req }) => {
     // get the user token from the headers
